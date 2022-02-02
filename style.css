@@ -49,6 +49,24 @@ p{
 .brand h1 span{
 	color: #f7a588;
 }
+.cta { /* for buttons */
+	display: inline-block;
+	padding: 10px 30px;
+	color: black;
+	background-color: transparent;
+	border: 2px solid #5ca997;
+	font-size: 1.4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+.cta:hover {
+	color: white;
+	background-color: #5ca997;
+}
 /* Header section */
 #header {
 	position: fixed;
@@ -330,8 +348,8 @@ p{
 #officers .officers-item{
 	flex-basis: 80%;
 	display: flex;
-	max-width: 250px;
-	max-height: 425px;
+	max-width: 150px;
+	max-height: 320px;
 	justify-content: center;
 	flex-direction: column;
 	padding: 20px;
@@ -371,14 +389,67 @@ p{
 }
 /* End of Officers Section */
 
+/* Membership Section */
+#membership .membership{
+	max-width: 1200px;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+#membership .section-title{
+	margin: 20px;
+}
+#membership .membership-left{
+	margin: 20px 20px;
+}
+#membership .membership-left p{
+	margin-bottom: 10px;
+}
+#membership .membership-right{
+	padding: 20px;
+	border-radius: 10px;
+	border: 7px solid #f7a588;
+	margin: 20px 20px;
+}
+#membership .membership-right span{
+	color: #f7a588;
+}
+#membership .membership-right h2{
+	font-size: 2rem;
+}
+#membership .membership-right h3{
+	font-size: 1.8rem;
+}
+#membership .membership-right .cta{
+	font-size: 1.6rem;
+}
+#membership .membership-right a span{
+	font-size: 1.6rem;
+	font-weight: 400;
+	text-decoration: underline;
+}
+/* End of Membership Section */
+
 /* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
 	.cta {
-		font-size: 2.5rem;
-		padding: 20px 60px;
+		font-size: 1.8rem;
+		padding: 10px 30px;
 	}
 	#hero{
 		background-image: url(./img/JLCC-Landing.png);
+	}
+	#officers .officers-item{
+		max-width: 200px;
+		max-height: 425px;
+	}
+	#membership .membership{
+		flex-direction: row;
+		align-items: top;
+	}
+	#membership .membership .membership-right{
+		align-items: top;
 	}
 }
 /* End Media Query For Tablet */
@@ -407,8 +478,13 @@ p{
 	}
 	/* End header */
 
-	/* About */	
-
-	/* End About */
+	/* Membership */	
+	#membership .membership-left{
+		width: 50vw;
+	}
+	#membership .membership-right{
+		width: 20vw;
+	}
+	/* End Membership */
 }
 /* End  Media Query For Desktop */
