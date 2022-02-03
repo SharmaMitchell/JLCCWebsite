@@ -112,7 +112,7 @@ p{
 #header .nav-list ul a {
 	font-size: 2.5rem;
 	font-weight: 500;
-	letter-spacing: 0.2rem;
+	letter-spacing: 0.1rem;
 	text-decoration: none;
 	color: white;
 	text-transform: uppercase;
@@ -151,7 +151,7 @@ p{
 	z-index: 100;
 	cursor: pointer;
 	transform: scale(0.8);
-	margin-right: 20px;
+	margin-right: 10px;
 }
 #header .hamburger::after {
 	position: absolute;
@@ -316,6 +316,7 @@ p{
 	padding: 10px 20px;
 }
 #events .events-item .events-img{
+	background-color: #f7a588;
 	flex-basis: 50%;
 	overflow: hidden;
 	position: relative;
@@ -360,6 +361,7 @@ p{
 	overflow: hidden;
 }
 #officers .officers-item .officers-img{
+	background-color: #f7a588;
 	flex-basis: 50%;
 	overflow: hidden;
 	position: relative;
@@ -398,7 +400,7 @@ p{
 	padding: 100px 0;
 }
 #membership .section-title{
-	margin: 20px;
+	margin: 20px 0px;
 }
 #membership .membership-left{
 	margin: 20px 20px;
@@ -431,11 +433,101 @@ p{
 }
 /* End of Membership Section */
 
+/* Community Section */
+#community .community{
+	max-width: 1200px;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+#community .community-list{
+	display: flex;
+	justify-content: center;
+	align-items: top;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+#community .community-item{
+	flex-basis: 80%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-self: start;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: lightgrey;
+	margin: 10px 10px;
+	position: relative;
+	overflow: hidden;
+}
+#community .community-item .section-title{
+	font-size: 3rem;
+	font-weight: 700;
+	letter-spacing: 0.1rem;
+}
+#community .community-item img{
+	width: 80px;
+	height: 80px;
+	margin-top: 20px;
+	transition: 0.3s ease transform;
+}
+#community .community-item .icon:hover img{
+	transform: scale(1.05);
+}
+/* End of Community Section */
+
+/* Footer Section */
+#footer{
+	background-color: #5ca997;
+}
+#footer .footer {
+	min-height: 200px;
+	flex-direction: column;
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+#footer h2 {
+	text-align: center;
+	color: white;
+	font-weight: 500;
+	font-size: 1.8rem;
+	letter-spacing: 0.1rem;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#footer .social-icon {
+	display: flex;
+	margin-bottom: 30px;
+}
+#footer .social-item {
+	height: 50px;
+	width: 50px;
+	margin: 0 5px;
+}
+#footer .social-item img {
+	transition: 0.3s ease transform;
+}
+#footer .social-item:hover img {
+	transform: scale(1.05);
+}
+#footer p {
+	color: white;
+	font-size: 1.3rem;
+}
+/* End of Footer Section */
+
 /* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
 	.cta {
 		font-size: 1.8rem;
 		padding: 10px 30px;
+	}
+	#about .container{
+		min-height: 60vh;
+	}
+	#membership .container{
+		min-height: 60vh;
 	}
 	#hero{
 		background-image: url(./img/JLCC-Landing.png);
@@ -450,6 +542,10 @@ p{
 	}
 	#membership .membership .membership-right{
 		align-items: top;
+	}
+	#community .community-list{
+		flex-wrap: wrap;
+		max-width: 40vw;
 	}
 }
 /* End Media Query For Tablet */
