@@ -107,62 +107,62 @@
 				<h1 class="section-title">Meet the Officers</h1>
 			</div>
 			<div class="officers-bottom">
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
-				<div class="officers-item">
-					<div class="officers-img"> <img src="./img/placeholder.png"> </div>
-					<div class="officers-info">
-						<h1>Officer Name</h1>
-						<h2>Officer Role</h2>
-					</div>
-				</div>
+				<script>
+					const officerList = [ //Use a JSON to store this later
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+						{
+							"name": "Officer Name",
+							"role": "Officer Role",
+							"image": "./img/placeholder.png",
+						},
+					]
+					for(var i = 0; i < officerList.length; i++){
+						var item = `
+							<div class="officers-item">
+								<div class="officers-img"> <img src=${officerList[i].image}> </div>
+								<div class="officers-info">
+									<h1>${officerList[i].name + " " + i}</h1>
+									<h2>${officerList[i].role + " " + i}</h2>
+								</div>
+							</div>
+						`
+						document.write(item);
+					}
+				</script>
 			</div>
 		</div>
 	</section>
