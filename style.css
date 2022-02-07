@@ -472,7 +472,7 @@ p{
 	margin-top: 20px;
 	transition: 0.3s ease transform;
 }
-#community .community-item .icon:hover img{
+#community .community-item .icon img:hover{
 	transform: scale(1.05);
 }
 /* End of Community Section */
