@@ -526,6 +526,12 @@ p{
 	#about .container{
 		min-height: 60vh;
 	}
+	#events .events-bottom{
+		width: 100%;;
+	}
+	#events .events-item{
+		float: left;
+	}
 	#membership .container{
 		min-height: 60vh;
 	}
