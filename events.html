@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>UH Japanese Langauge & Culture Club</title>
+    <link href="events-style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="officerList.js"></script>
+  </head>
+  <body>
+	<!-- Header -->
+	<secion id="header">
+		<div class = "header container">
+			<div class="nav-bar">
+				<div class="brand">
+					<a href="./index.html"><h1>JLCC <span>UH</span></h1></a>
+				</div>
+				<div class="nav-list">
+					<div class="hamburger"><div class="bar"></div></div>
+					<ul>
+						<li><a href="./index.html#about" data-after="About">About</a></li>
+						<li><a href="#events" data-after="Events" style="color:#f7a588">Events</a></li>
+						<li><a href="./index.html#officers" data-after="Officers">Officers</a></li>
+						<li><a href="./index.html#membership" data-after="Membership">Membership</a></li>
+						<li><a href="./index.html#community" data-after="Community">Community</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</secion>
+	<!-- End of Header -->
+	
+	<!-- Hero Section -->
+	<section id="hero">
+		<div class="hero container">
+			
+		</div>
+	</section>
+	<!-- End of Hero Section -->
+
+	<!-- Events Section -->
+	<section id="events">
+		<div class="events container">
+			<div class="events-top">
+				<h1 class="section-title">Upcoming Events</h1>
+			</div>
+			<div class="events-bottom">
+				<script>
+					var eventsBot = document.getElementsByClassName("events-bottom");
+
+					const SHEET_ID = '1FtZ30gm7E50faLSdECNBO8aVx3k6sRV-RVlRwHi_vbE';
+					const API_KEY = 'AIzaSyB--kBZheOdXiaXSmRaLzLDZ_nXQRs1crY';
+					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Upcoming!A1:F90?key=${API_KEY}`)
+						.then(function(response){
+							return response.json();
+						})
+						.then(function(data){
+							for(var i = 0; i < 90; i++){
+								if(data.values[i+1][0] != ""){ //if title isn't blank
+									var item = `
+									<div class="events-item">
+										<div class="events-img"> <img src=${data.values[i+1][4]}> </div>
+										<div class="events-info">
+											<h1>${data.values[i+1][0]}</h1>
+											<h2>${data.values[i+1][1]}</h2>
+											<p>Location: ${data.values[i+1][2]}</p>
+											<p>${data.values[i+1][3]}</p>
+										</div>
+									</div>
+									`
+								}
+								else{
+									break;
+								}
+								eventsBot[0].innerHTML += item;
+							}
+						})
+						.catch(function(error){
+							console.log(error);
+						});
+				</script>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="events-top">
+				<h1 class="section-title">Previous Events</h1>
+			</div>
+			<div class="events-prev">
+				<script>
+					var eventsPrev = document.getElementsByClassName("events-prev");
+					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Archive!A1:F90?key=${API_KEY}`)
+						.then(function(response){
+							return response.json();
+						})
+						.then(function(data){
+							for(var i = 0; i < 90; i++){
+								if(data.values[i+1][0] != ""){ //if title isn't blank
+									var item = `
+									<div class="events-item">
+										<div class="events-img"> <img src=${data.values[i+1][4]}> </div>
+										<div class="events-info">
+											<h1>${data.values[i+1][0]}</h1>
+											<h2>${data.values[i+1][1]}</h2>
+											<p>Location: ${data.values[i+1][2]}</p>
+											<p>${data.values[i+1][3]}</p>
+										</div>
+									</div>
+									`
+								}
+								else{
+									break;
+								}
+								eventsPrev[0].innerHTML += item;
+							}
+						})
+						.catch(function(error){
+							console.log(error);
+						});
+				</script>
+			</div>
+		</div>
+	</section>
+	<!-- End of Events Section -->
+
+	<!-- Footer Section -->
+	<section id="footer">
+		<div class="footer container">
+			<div class="brand"><h1>JLCC <span>UH</span></h1></div>
+			<h2>Japanese Language & Culture Club, University of Houston</h2>
+			<div class="social-icon">
+				<div class="social-item"> <a href="#"> <img src="./img/JLCC-Instagram.png"></a></div>
+				<div class="social-item"> <a href="#"> <img src="./img/JLCC-Mail.png"></a></div>
+			</div>
+			<p>Created by Mitchell Sharma in 2022. All rights reserved</p>
+		</div>
+	</section>
+	<!-- End of Footer Section -->
+    <script src="script.js"></script>
+  </body>
+</html>
