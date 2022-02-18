@@ -50,7 +50,7 @@
 
 					const SHEET_ID = '1FtZ30gm7E50faLSdECNBO8aVx3k6sRV-RVlRwHi_vbE';
 					const API_KEY = 'AIzaSyB--kBZheOdXiaXSmRaLzLDZ_nXQRs1crY';
-					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Upcoming!A1:F90?key=${API_KEY}`)
+					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Upcoming!A1:G90?key=${API_KEY}`)
 						.then(function(response){
 							return response.json();
 						})
@@ -59,12 +59,12 @@
 								if(data.values[i+1][0] != ""){ //if title isn't blank
 									var item = `
 									<div class="events-item">
-										<div class="events-img"> <img src=${data.values[i+1][4]}> </div>
+										<div class="events-img"> <img src=${data.values[i+1][5]}> </div>
 										<div class="events-info">
 											<h1>${data.values[i+1][0]}</h1>
 											<h2>${data.values[i+1][1]}</h2>
 											<p>Location: ${data.values[i+1][2]}</p>
-											<p>${data.values[i+1][3]}</p>
+											<p>${data.values[i+1][3]}, ${data.values[i+1][4]}</p>
 										</div>
 									</div>
 									`
@@ -89,7 +89,7 @@
 			<div class="events-prev">
 				<script>
 					var eventsPrev = document.getElementsByClassName("events-prev");
-					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Archive!A1:F90?key=${API_KEY}`)
+					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Archive!A1:G90?key=${API_KEY}`)
 						.then(function(response){
 							return response.json();
 						})
@@ -98,12 +98,12 @@
 								if(data.values[i+1][0] != ""){ //if title isn't blank
 									var item = `
 									<div class="events-item">
-										<div class="events-img"> <img src=${data.values[i+1][4]}> </div>
+										<div class="events-img"> <img src=${data.values[i+1][5]}> </div>
 										<div class="events-info">
 											<h1>${data.values[i+1][0]}</h1>
 											<h2>${data.values[i+1][1]}</h2>
 											<p>Location: ${data.values[i+1][2]}</p>
-											<p>${data.values[i+1][3]}</p>
+											<p>${data.values[i+1][3]}, ${data.values[i+1][4]}</p>
 										</div>
 									</div>
 									`
