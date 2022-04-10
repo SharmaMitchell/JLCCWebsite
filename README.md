@@ -1,4 +1,5 @@
 # JLCC (Japanese Language & Culture Club) Website
+![JLCC-Site-Landing2](https://user-images.githubusercontent.com/90817905/162598425-0ab06e6c-8369-49dc-a817-96b972e3c695.png)
 Website for the Japanese Language & Culture Club at the University of Houston. Built using HTML, CSS, and Javascript.
 
 # Main Features
