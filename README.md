@@ -6,7 +6,9 @@ Website for the Japanese Language & Culture Club at the University of Houston. B
 - Landing page featuring:
   - 'About Us' summary
   - Two soonest upcoming events
+    - Pulled from Google Sheets database via API (see Implementation Section)
   - Club officers (Names, Roles)
+    - Pulled from Officers.js
   - Membership info & payment link
   - Community info & links
 - Events page featuring:
@@ -14,7 +16,8 @@ Website for the Japanese Language & Culture Club at the University of Houston. B
   - All previous events
 
 # Implementation
-- Events
+- Events (Implemented an events database using Google Sheets, populating events on the site via API)
+  - Allows club leadership to easily update events on the website, without programming
   - Google Sheet with event info (title, summary, location, date & time, image)
     - Script automatically sorting events into separate "Archive" & "Upcoming" events, based on date
     - Automatic date formatting & default image (coffee cup placeholder)
