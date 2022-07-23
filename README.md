@@ -16,6 +16,7 @@ Website for the Japanese Language & Culture Club at the University of Houston. B
   - All previous events
 
 # Implementation
+![JLCC-Site-Events-DB-2](https://user-images.githubusercontent.com/90817905/180591604-85489e5f-a744-46b2-a428-dacb319b35d4.png)
 - Events (Implemented an events database using Google Sheets, populating events on the site via API)
   - Allows club leadership to easily update events on the website, without programming
   - Google Sheet with event info (title, summary, location, date & time, image)
