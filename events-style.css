@@ -119,6 +119,8 @@ p{
 	text-transform: uppercase;
 	padding: 20px;
 	display: block;
+	transition: 0.3s ease background;
+	border-radius: 10px;
 }
 #header .nav-list ul a::after {
 	content: attr(data-after);
@@ -138,6 +140,8 @@ p{
 }
 #header .nav-list ul li:hover a {
 	color: #f7a588;
+	font-weight: 600;
+	background-color: rgba(0, 0, 0, 15%);
 }
 #header .hamburger {
 	height: 60px;

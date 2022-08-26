@@ -77,7 +77,9 @@
 						})
 						.then(function(data){
 							for(var i = 0; i < 2; i++){
-								if(data.values[i+1][0] != ""){ //if title isn't blank
+								console.log(data);
+								console.log(data.values.length);
+								if(data.values.length > i+1 && data.values[i+1][0] != ""){ //if title isn't blank
 									var item = `
 									<div class="events-item">
 										<div class="events-img"> <img src=${data.values[i+1][5]}> </div>
@@ -89,8 +91,9 @@
 										</div>
 									</div>
 									`
+									eventsBot[0].innerHTML += item;
 								}
-								else{ //default
+								else if(i==0){ //default when no events loaded
 									var item = `
 									<div class="events-item">
 										<div class="events-img"> <img src="./img/placeholder2.png"> </div>
@@ -102,8 +105,8 @@
 										</div>
 									</div>
 									`
+									eventsBot[0].innerHTML += item;
 								}
-								eventsBot[0].innerHTML += item;
 							}
 						})
 						.catch(function(error){
@@ -119,7 +122,7 @@
 								</div>
 							</div>
 							`
-							eventsBot[0].innerHTML += item;
+							//eventsBot[0].innerHTML += item;
 							eventsBot[0].innerHTML += item;
 						});
 				</script>
