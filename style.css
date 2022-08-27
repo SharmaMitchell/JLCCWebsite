@@ -55,6 +55,7 @@ p{
 	color: black;
 	background-color: transparent;
 	border: 2px solid #5ca997;
+	border-radius: 10px;
 	font-size: 1.4rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
