@@ -310,12 +310,17 @@ p{
 	position: relative;
 	margin: -30px;
 	margin-bottom: 14px;
+
+	border-radius: 10px;
+	border: 5px solid #f7a588;
+	font-size: 0;
 }
 #events .events-item .events-img img{
+	transform: scale(1.02);
 	transition: .3s ease transform;
 }
 #events .events-item .events-img:hover img{
-	transform: scale(1.05);
+	transform: scale(1.07);
 }
 #events .cta{
 	font-size: 1.8rem;

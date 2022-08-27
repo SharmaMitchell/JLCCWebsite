@@ -339,12 +339,17 @@ p{
 	position: relative;
 	margin: -30px;
 	margin-bottom: 14px;
+	
+	border-radius: 10px;
+	border: 5px solid #f7a588;
+	font-size: 0; /* Fixing gap betw img and border */
 }
 #events .events-item .events-img img{
+	transform: scale(1.02);
 	transition: .3s ease transform;
 }
 #events .events-item .events-img:hover img{
-	transform: scale(1.05);
+	transform: scale(1.07);
 }
 #events .cta{
 	font-size: 1.8rem;
@@ -404,6 +409,8 @@ p{
 }
 #officers .officers-item .officers-img{
 	background-color: #f7a588;
+	border-radius: 10px;
+	border: 5px solid #f7a588;
 	/*flex-basis: 50%;*/
 	overflow: hidden;
 	position: relative;
@@ -414,6 +421,8 @@ p{
 }
 #officers .officers-item .officers-img img{
 	transition: .3s ease transform;
+	object-fit: cover;
+	object-position: top;
 }
 #officers .officers-item .officers-img:hover .officer-pic{
 	/*transform: scale(1.05);*/
