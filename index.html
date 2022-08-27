@@ -75,7 +75,8 @@
 			<div class="events-bottom">
 				<script>
 					var eventsBot = document.getElementsByClassName("events-bottom");
-
+					eventsBot[0].innerHTML = `<h1 class="events-loading">LOADING EVENTS...</h1>`;
+					
 					const SHEET_ID = '1FtZ30gm7E50faLSdECNBO8aVx3k6sRV-RVlRwHi_vbE';
 					const API_KEY = 'AIzaSyB--kBZheOdXiaXSmRaLzLDZ_nXQRs1crY';
 					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Upcoming!A1:G3?key=${API_KEY}`)
@@ -83,6 +84,7 @@
 							return response.json();
 						})
 						.then(function(data){
+							result =``;
 							for(var i = 0; i < 2; i++){
 								console.log(data);
 								console.log(data.values.length);
@@ -98,7 +100,8 @@
 										</div>
 									</div>
 									`
-									eventsBot[0].innerHTML += item;
+									//eventsBot[0].innerHTML += item;
+									result += item;
 								}
 								else if(i==0){ //default when no events loaded
 									var item = `
@@ -112,9 +115,11 @@
 										</div>
 									</div>
 									`
-									eventsBot[0].innerHTML += item;
+									//eventsBot[0].innerHTML += item;
+									result += item;
 								}
 							}
+							eventsBot[0].innerHTML = result;
 						})
 						.catch(function(error){
 							console.log(error);
