@@ -445,7 +445,7 @@ p{
 }
 #officers .officers-item .officers-info h2{
 	color: black;
-	font-size: 1.8rem;
+	font-size: 1.5rem;
 	text-align: center;
 	margin-bottom: 10px;
 }
@@ -604,6 +604,9 @@ p{
 	#officers .officers-item{
 		max-width: 200px;
 		max-height: 425px;
+	}
+	#officers .officers-item .officers-info h2{
+		font-size: 1.8rem;
 	}
 	#membership .membership{
 		flex-direction: row;
