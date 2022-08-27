@@ -364,7 +364,7 @@ p{
 }
 #officers .officers-bottom{
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 50px;
@@ -374,31 +374,56 @@ p{
 	display: flex;
 	max-width: 150px;
 	max-height: 320px;
-	justify-content: center;
+	justify-content: flex-start;
 	flex-direction: column;
-	padding: 20px;
+	padding-bottom: 20px;
 	border-radius: 10px;
 	background-color: lightgray;
-	margin: 10px 10px;
+	margin: 10px;
 	position: relative;
 	overflow: hidden;
 }
+#officers .officers-item .officers-img-top{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	background-color: rgba(0, 0, 0, 15%);
+	position: absolute;
+	width: 100%;
+
+	opacity: 0;
+	transition: 0.3s ease all;
+}
+#officers .officers-item .officers-img-top img{
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+}
 #officers .officers-item .officers-img{
 	background-color: #f7a588;
-	flex-basis: 50%;
+	/*flex-basis: 50%;*/
 	overflow: hidden;
 	position: relative;
-	margin: -20px;
 	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column-reverse;
+	transition: 0.3s ease all;
 }
 #officers .officers-item .officers-img img{
 	transition: .3s ease transform;
 }
-#officers .officers-item .officers-img:hover img{
-	transform: scale(1.05);
+#officers .officers-item .officers-img:hover .officer-pic{
+	/*transform: scale(1.05);*/
 }
 #officers .officers-item .officers-info{
 	text-align: center;
+	margin: 0 10px;
+}
+#officers .officers-item .officers-img:hover .officers-img-top{
+	opacity: 1;
+}
+#officers .officers-item .officers-img .officers-img-top img:hover{
+	transform: scale(1.05);
 }
 #officers .officers-item .officers-info h1{
 	color: black;
@@ -619,3 +644,10 @@ p{
 	/* End Membership */
 }
 /* End  Media Query For Desktop */
+
+/* Media Query for Touch Devices */
+@media (hover: none){
+	#officers .officers-item .officers-img .officers-img-top{
+		/*opacity: 1;*/
+	}
+}

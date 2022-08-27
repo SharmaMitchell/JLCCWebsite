@@ -1,47 +1,42 @@
 var officerList = [
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Jimmy Eskew",
+	"role": "President",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Vanessa Huynh",
+	"role": "Vice President",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Aka Alaragi",
+	"role": "Director of Operations",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Jverlyn Brown",
+	"role": "Historian",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Lauren Meagher",
+	"role": "Communications",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Riley Johnston",
+	"role": "Designer",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Ajay",
+	"role": "Event Coordinator",
 	"image": "./img/placeholder.png",
 	},
 	{
-	"name": "Officer Name",
-	"role": "Officer Role",
-	"image": "./img/placeholder.png",
-	},
-	{
-	"name": "Officer Name",
-	"role": "Officer Role",
+	"name": "Miguel",
+	"role": "Treasurer",
 	"image": "./img/placeholder.png",
 	},
 ];

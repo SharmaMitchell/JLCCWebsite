@@ -152,10 +152,17 @@
 					for(var i = 0; i < officerList.length; i++){
 						var item = `
 							<div class="officers-item">
-								<div class="officers-img"> <img src=${officerList[i].image}> </div>
+			 					
+								<div class="officers-img"> 
+									<div class="officers-img-top"> 
+				 						<a href=""><img src="./img/JLCC-Instagram-Green.png" /></a>
+										<a href=""><img src="./img/JLCC-LinkedIn-Green.png" /></a>
+				 					</div>
+				 					<img class="officer-pic" src=${officerList[i].image}> 
+				 				</div>
 								<div class="officers-info">
-									<h1>${officerList[i].name + " " + (i+1)}</h1>
-									<h2>${officerList[i].role + " " + (i+1)}</h2>
+									<h1>${officerList[i].name}</h1>
+									<h2>${officerList[i].role}</h2>
 								</div>
 							</div>
 						`
