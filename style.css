@@ -343,10 +343,22 @@ p{
 	border-radius: 10px;
 	border: 5px solid #f7a588;
 	font-size: 0; /* Fixing gap betw img and border */
+
+	width: 450px;
+	max-height: 342px;
+	max-width: 80vw;
+	object-fit: cover;
+	object-position: center;
 }
 #events .events-item .events-img img{
 	transform: scale(1.02);
 	transition: .3s ease transform;
+
+	width: 450px;
+	max-height: 342px;
+	max-width: 80vw;
+	object-fit: cover;
+	object-position: center;
 }
 #events .events-item .events-img:hover img{
 	transform: scale(1.07);
