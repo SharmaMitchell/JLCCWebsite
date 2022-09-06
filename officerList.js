@@ -31,7 +31,7 @@ var officerList = [
 	"name": "Jverlyn Brown",
 	"role": "Historian",
 	"image": "./img/officers/Jverlyn.png",
-	"insta": "",
+	"insta": "https://www.instagram.com/jverly.n/",
 	"linkedin": "",
 	},
 	{

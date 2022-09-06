@@ -155,13 +155,20 @@
 			<div class="officers-bottom">
 				<script>
 					for(var i = 0; i < officerList.length; i++){
+						var insta = ``;
+						var linkedin = ``;
+						if (officerList[i].insta && officerList[i].insta != ""){
+							insta = `<a href=${officerList[i].insta}><img src="./img/JLCC-Instagram-Green.png" /></a>`
+						}
+						if (officerList[i].insta && officerList[i].linkedin != ""){
+							linkedin = `<a href=${officerList[i].linkedin}><img src="./img/JLCC-LinkedIn-Green.png" /></a>`
+						}
 						var item = `
 							<div class="officers-item">
-			 					
 								<div class="officers-img"> 
 									<div class="officers-img-top"> 
-				 						<a href=${officerList[i].insta}><img src="./img/JLCC-Instagram-Green.png" /></a>
-										<a href=${officerList[i].linkedin}><img src="./img/JLCC-LinkedIn-Green.png" /></a>
+				 						${insta}
+										${linkedin}
 				 					</div>
 				 					<img class="officer-pic" src=${officerList[i].image}> 
 				 				</div>
