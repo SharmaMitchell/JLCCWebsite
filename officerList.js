@@ -25,7 +25,7 @@ var officerList = [
 	"role": "Director of Operations",
 	"image": "./img/officers/Aka.png",
 	"insta": "",
-	"linkedin": "",
+	"linkedin": "https://www.linkedin.com/in/aka-sarah-al-7b4705232",
 	},
 	{
 	"name": "Jverlyn Brown",
@@ -38,21 +38,21 @@ var officerList = [
 	"name": "Lauren Meagher",
 	"role": "Communications",
 	"image": "./img/officers/Lauren.png",
-	"insta": "",
+	"insta": "https://www.instagram.com/laurensuzuki_/",
 	"linkedin": "",
 	},
 	{
 	"name": "Riley Johnston",
 	"role": "Designer",
 	"image": "./img/officers/placeholder.png",
-	"insta": "",
+	"insta": "https://www.instagram.com/rileygracej/",
 	"linkedin": "",
 	},
 	{
 	"name": "Ajay Pandher",
 	"role": "Event Coordinator",
 	"image": "./img/officers/Ajay.png",
-	"insta": "",
+	"insta": "https://www.instagram.com/th3drak0n3/",
 	"linkedin": "",
 	},
 	{

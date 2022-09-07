@@ -91,7 +91,7 @@
 								if(data.values.length > i+1 && data.values[i+1][0] != ""){ //if title isn't blank
 									var item = `
 									<div class="events-item">
-										<div class="events-img"> <img src=${data.values[i+1][5]}> </div>
+										<div class="events-img"> <img src=${data.values[i+1][5]} alt="${data.values[i+1][0]} Event Image"> </div>
 										<div class="events-info">
 											<h1>${data.values[i+1][0]}</h1>
 											<h2>${data.values[i+1][1]}</h2>
@@ -158,10 +158,10 @@
 						var insta = ``;
 						var linkedin = ``;
 						if (officerList[i].insta && officerList[i].insta != ""){
-							insta = `<a href=${officerList[i].insta}><img src="./img/JLCC-Instagram-Green.png" /></a>`
+							insta = `<a href=${officerList[i].insta}><img src="./img/JLCC-Instagram-Green.png" alt="${officerList[i].name}'s Instagram" /></a>`
 						}
-						if (officerList[i].insta && officerList[i].linkedin != ""){
-							linkedin = `<a href=${officerList[i].linkedin}><img src="./img/JLCC-LinkedIn-Green.png" /></a>`
+						if (officerList[i].linkedin && officerList[i].linkedin != ""){
+							linkedin = `<a href=${officerList[i].linkedin}><img src="./img/JLCC-LinkedIn-Green.png" alt="${officerList[i].name}'s LinkedIn" /></a>`
 						}
 						var item = `
 							<div class="officers-item">
@@ -170,7 +170,7 @@
 				 						${insta}
 										${linkedin}
 				 					</div>
-				 					<img class="officer-pic" src=${officerList[i].image}> 
+				 					<img class="officer-pic" src=${officerList[i].image} alt="${officerList[i].name}"> 
 				 				</div>
 								<div class="officers-info">
 									<h1>${officerList[i].name}</h1>
@@ -218,12 +218,12 @@
 					<h1 class="section-title">Discord</h1>
 					<p>Join our Discord server to gain access to a community of over 100 other Japanese learners from the University of Houston. Have your burning Japanese questions answered by those who were once in your shoes. Participate in events hosted on Discord like Japanese Tables & impromptu gaming sessions.</p>
 					<p>The server is open to anyone studying at the University of Houston, so feel free to join if you're interested!</p>
-					<div class="icon"> <a href="https://discord.gg/AJNdDZwyrJ"><img src="./img/JLCC-Discord-Alt.png"/></a> </div>
+					<div class="icon"> <a href="https://discord.gg/AJNdDZwyrJ"><img src="./img/JLCC-Discord-Alt.png" alt="JLCC UH Discord Server"/></a> </div>
 				</div>
 				<div class="community-item">
 					<h1 class="section-title">Instagram</h1>
 					<p>Follow us on Instagram to keep up our with upcoming events & get to know our officers!</p>
-					<div class="icon"> <a href="https://www.instagram.com/jlccuh/"><img src="./img/JLCC-Instagram.png"/></a> </div>
+					<div class="icon"> <a href="https://www.instagram.com/jlccuh/"><img src="./img/JLCC-Instagram.png" alt="JLCC UH Instagram"/></a> </div>
 				</div>
 			</div>
 		</div>
@@ -236,8 +236,8 @@
 			<div class="brand"><h1>JLCC <span>UH</span></h1></div>
 			<h2>Japanese Language & Culture Club, University of Houston</h2>
 			<div class="social-icon">
-				<div class="social-item"> <a href="https://www.instagram.com/jlccuh/"> <img src="./img/JLCC-Instagram.png"></a></div>
-				<div class="social-item"> <a href="mailto:jlccuh@gmail.com"> <img src="./img/JLCC-Mail.png"></a></div>
+				<div class="social-item"> <a href="https://www.instagram.com/jlccuh/"> <img src="./img/JLCC-Instagram.png" alt="JLCC UH Instagram"></a></div>
+				<div class="social-item"> <a href="mailto:jlccuh@gmail.com"> <img src="./img/JLCC-Mail.png" alt="Email JLCC UH"></a></div>
 			</div>
 			<p>Created by Mitchell Sharma in 2022. All rights reserved</p>
 		</div>

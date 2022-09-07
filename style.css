@@ -446,6 +446,9 @@ p{
 #officers .officers-item .officers-img:hover .officers-img-top{
 	opacity: 1;
 }
+#officers .officers-item .officers-img .officers-img-top:hover{
+	opacity: 1;
+}
 #officers .officers-item .officers-img .officers-img-top img:hover{
 	transform: scale(1.05);
 }
