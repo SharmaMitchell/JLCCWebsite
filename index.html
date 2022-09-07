@@ -119,6 +119,9 @@
 									result += item;
 								}
 							}
+							if(result==``){ //Alternative style for no events loaded
+								result = `<div class="box1 sb7">No Upcoming Events! <br> Check our previous events below!</div>`
+							}
 							eventsBot[0].innerHTML = result;
 						})
 						.catch(function(error){
