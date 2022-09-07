@@ -13,7 +13,7 @@ a{
 	text-decoration: none;
 }
 .container{
-	min-height: 100vh;
+	/*min-height: 100vh;*/
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -78,7 +78,8 @@ p{
 	height: auto;
 }
 #header .header {
-	min-height: 8vh;
+	height: 8vh;
+	max-height: 80px;
 	background-color: transparent;
 	transition: 0.3s ease background-color;
 }
@@ -209,7 +210,8 @@ p{
 	z-index: 1;
 }
 #hero .container{
-	min-height: 50vh;
+	/*height: 50vh;*/
+	height: 450px;
 }
 #hero::after{
 	content: '';
