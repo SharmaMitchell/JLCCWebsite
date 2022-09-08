@@ -3,7 +3,7 @@ var officerList = [
 	"name": "Jimmy Eskew",
 	"role": "President",
 	"image": "./img/officers/Jimmy.png",
-	"insta": "",
+	"insta": "https://www.instagram.com/jimmy.eskew/",
 	"linkedin": "",
 	},
 	{
