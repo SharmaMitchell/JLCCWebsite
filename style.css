@@ -201,7 +201,7 @@ p{
 
 /* Hero Section */
 #hero{
-	background-image: url(./img/JLCC-Landing-Banner.png);
+	background-image: url(./img/JLCC-Landing-Banner-New.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -554,6 +554,17 @@ p{
 	font-weight: 400;
 	text-decoration: underline;
 }
+#membership .membership-left .alt-payment{
+	font-size: 1.8rem;
+}
+#membership .membership-left ul{
+	display: inline-block;
+	text-align: left;
+	list-style-position: inside;
+}
+#membership .membership-left ul li{
+	font-size: 1.5rem;
+}
 /* End of Membership Section */
 
 /* Community Section */
@@ -662,7 +673,7 @@ p{
 		/*min-height: 60vh;*/
 	}
 	#hero{
-		background-image: url(./img/JLCC-Landing-Banner.png);
+		background-image: url(./img/JLCC-Landing-Banner-New.png);
 	}
 	#officers .officers-item{
 		max-width: 200px;
@@ -673,7 +684,7 @@ p{
 	}
 	#membership .membership{
 		flex-direction: row;
-		align-items: top;
+		/*align-items: flex-start;*/
 	}
 	#membership .membership .membership-right{
 		align-items: top;

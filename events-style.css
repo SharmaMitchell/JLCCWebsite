@@ -201,7 +201,7 @@ p{
 
 /* Hero Section */
 #hero{
-	background-image: url(./img/JLCC-Landing-Banner.png);
+	background-image: url(./img/JLCC-Landing-Banner-New.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -408,7 +408,7 @@ p{
 		min-height: 60vh;
 	}
 	#hero{
-		background-image: url(./img/JLCC-Landing-Banner.png);
+		background-image: url(./img/JLCC-Landing-Banner-New.png);
 	}
 	#officers .officers-item{
 		max-width: 200px;
