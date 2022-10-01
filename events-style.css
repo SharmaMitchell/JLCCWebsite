@@ -302,6 +302,17 @@ p{
 	color: white;
 	text-align: left;
 }
+#events .events-item .events-info a{
+	color: white;
+	font-size: 1.5rem;
+	text-align: left;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	text-decoration: underline;
+	float: left;
+	margin-top: 10px;
+}
 #events .events-item .events-info .cta{
 	font-size: 2rem;
 	padding: 10px 20px;
