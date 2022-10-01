@@ -288,6 +288,7 @@ p{
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
+	width: 100%;
 	margin-top: 50px;
 }
 #events .events-bottom .events-loading{
