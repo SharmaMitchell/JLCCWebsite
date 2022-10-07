@@ -44,7 +44,7 @@ var officerList = [
 	{
 	"name": "Riley Johnston",
 	"role": "Designer",
-	"image": "./img/officers/placeholder.png",
+	"image": "./img/officers/Riley.png",
 	"insta": "https://www.instagram.com/rileygracej/",
 	"linkedin": "",
 	},
