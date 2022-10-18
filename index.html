@@ -95,17 +95,17 @@
 								console.log(data.values.length);
 								if(data.values.length > i+1 && data.values[i+1][0] != ""){ //if title isn't blank
 									let eventLink = ``;
-									if (data.values[i+1][7] != undefined){
-										if (data.values[i+1][6] != undefined){
+									if (data.values[i+1][7] != undefined){ //Event link
+										if (data.values[i+1][6] != undefined && data.values[i+1][6] != ""){ // if theres a label, use it
 											eventLink = `<a href=${data.values[i+1][7]}>${data.values[i+1][6]}</a>`
 										}
-										else{
-											eventLink = `<a href=${data.values[i+1][7]}>${data.values[i+1][7]}</a>`
+										else{ //else just put the link there
+											eventLink = `<a href=${data.values[i+1][7]}">Event Details or RSVP</a>`
 										}
 									}
 
 									let eventImg = `<img src="./img/placeholder2.png" alt="${data.values[i+1][0]} Event Image" >`;
-									if (data.values[i+1][5] != undefined){
+									if (data.values[i+1][5] != undefined && data.values[i+1][5] != ""){
 										eventImg = `<img src=${data.values[i+1][5]} alt="${data.values[i+1][0]} Event Image" >`;
 									}
 									var item = `
