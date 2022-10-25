@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+		<meta name="theme-color" content="#5ca997">
 		<meta
       name="description"
       content="The Official Website for the Japanese Language and Culture Club at the University of Houston"
@@ -91,8 +92,8 @@
 						.then(function(data){
 							result =``;
 							for(var i = 0; i < 2; i++){
-								console.log(data);
-								console.log(data.values.length);
+								//console.log(data);
+								//console.log(data.values.length);
 								if(data.values.length > i+1 && data.values[i+1][0] != ""){ //if title isn't blank
 									let eventLink = ``;
 									if (data.values[i+1][7] != undefined){ //Event link
@@ -250,7 +251,7 @@
 			<div class="community-list">
 				<div class="community-item">
 					<h1 class="section-title">Discord</h1>
-					<p>Join our Discord server to gain access to a community of over 200 other Japanese learners from the University of Houston. Have your burning Japanese questions answered by those who were once in your shoes. Participate in events hosted on Discord like Japanese Tables & impromptu gaming sessions.</p>
+					<p>Join our Discord server to gain access to a community of over 250 other Japanese learners from the University of Houston. Have your burning Japanese questions answered by those who were once in your shoes. Participate in events hosted on Discord like Japanese Tables & impromptu gaming sessions.</p>
 					<p>The server is open to anyone studying at the University of Houston, so feel free to join if you're interested!</p>
 					<div class="icon"> <a href="https://discord.gg/AJNdDZwyrJ"><img src="./img/JLCC-Discord-Alt.png" alt="JLCC UH Discord Server"/></a> </div>
 				</div>

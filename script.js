@@ -26,7 +26,7 @@ menu_item.forEach((item) => {
 	});
 });
 
-console.log(event_item.length)
+//console.log(event_item.length)
 
 function getEventItem(){
 	event_item = document.querySelectorAll('.events .events-bottom .events-item');
