@@ -739,7 +739,7 @@ p{
 	}
 	#community .community-list{
 		flex-wrap: wrap;
-		max-width: 40vw;
+		max-width: 65vw;
 	}
 }
 /* End Media Query For Tablet */
@@ -779,6 +779,13 @@ p{
 		width: 20vw;
 	}
 	/* End Membership */
+
+	/* Community */
+	#community .community-list{
+		flex-wrap: wrap;
+		max-width: 40vw;
+	}
+	/* End Community */
 }
 /* End  Media Query For Desktop */
 
