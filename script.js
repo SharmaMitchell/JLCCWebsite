@@ -49,10 +49,19 @@ if(event_item.length === 0){
 }
 let x = 0;
 event_item.forEach((event) => {
+	/* Click to expand event details */
 	event.addEventListener('click', () => {
 		event.querySelector('.events-info.more').classList.toggle('active');
 		event_button[x].classList.toggle('active');
 		// mobile_menu.classList.toggle('active');
 	});
+	/* Accessibility - Once user tabs to event, they can expand details with Space or Enter keys */
+	/*
+	event.addEventListener('keydown', (key) => {
+  	if (key.code === 'Space' || key.code === 'Enter') {
+	    event.click();
+	  }
+	});
+	*/
 	x++;
 });
