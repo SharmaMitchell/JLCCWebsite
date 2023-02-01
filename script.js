@@ -10,14 +10,14 @@ hamburger.addEventListener('click', () => {
 	mobile_menu.classList.toggle('active');
 });
 
-document.addEventListener('scroll', () => {
-	var scroll_position = window.scrollY;
-	if (scroll_position > 60) {
-		header.style.backgroundColor = '#5ca997';
-	} else {
-		header.style.backgroundColor = 'transparent';
-	}
-});
+// document.addEventListener('scroll', () => {
+// 	var scroll_position = window.scrollY;
+// 	if (scroll_position > 60) {
+// 		header.style.backgroundColor = '#5ca997';
+// 	} else {
+// 		header.style.backgroundColor = 'transparent';
+// 	}
+// });
 
 menu_item.forEach((item) => {
 	item.addEventListener('click', () => {

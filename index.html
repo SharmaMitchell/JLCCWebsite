@@ -4,12 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<meta name="theme-color" content="#5ca997">
+	<meta name="theme-color" content="#71a598">
 	<meta name="description"
 		content="The Official Website for the Japanese Language and Culture Club at the University of Houston" />
 	<meta property="og:title" content="UH Japanese Language and Culture Club" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="https://www.jlcc-uh.org/img/JLCC-Landing-Banner-New.png" />
+	<meta property="og:image" content="https://www.jlcc-uh.org/img/JLCC-Landing-Banner-2023.png" />
 	<meta property="og:url" content="https://www.jlcc-uh.org" />
 	<meta property="og:description"
 		content="The Official Website for the Japanese Language and Culture Club at the University of Houston" />
@@ -27,8 +27,11 @@
 		<div class="header container">
 			<div class="nav-bar">
 				<div class="brand">
-					<a href="#hero">
-						<h1>JLCC <span>UH</span></h1>
+					<a href="/">
+						<img src="./public/logo192.png" />
+					</a>
+					<a href="/">
+						<img class="banner-text" src="./img/JLCC-UH-Banner-Text-2023-v2.png" />
 					</a>
 				</div>
 				<div class="nav-list">
@@ -109,10 +112,10 @@
 									let eventLink = ``;
 									if (data.values[i + 1][7] != undefined) { //Event link
 										if (data.values[i + 1][6] != undefined && data.values[i + 1][6] != "") { // if theres a label, use it
-											eventLink = `<a href=${data.values[i + 1][7]}>${data.values[i + 1][6]}</a>`
+											eventLink = `<a target="_blank" href=${data.values[i + 1][7]}>${data.values[i + 1][6]}</a>`
 										}
 										else { //else just put the link there
-											eventLink = `<a href=${data.values[i + 1][7]}">Event Details or RSVP</a>`
+											eventLink = `<a target="_blank" href=${data.values[i + 1][7]}">Event Details or RSVP</a>`
 										}
 									}
 
@@ -190,7 +193,7 @@
 	<section id="officers">
 		<div class="officers container">
 			<div class="officers-top">
-				<h1 class="section-title">Meet the Officers</h1>
+				<h1 class="section-title">JLCC Officers</h1>
 			</div>
 			<div class="officers-bottom">
 				<script>
@@ -198,7 +201,7 @@
 					officersBot[0].innerHTML = `<h1 class="events-loading">LOADING OFFICERS...</h1>`;
 
 					const OFFICER_SHEET_ID = '1jb5jnUxogVqEqsCCdd0AQQwhgCaiF-LV_vY-9Krm_dk';
-					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${OFFICER_SHEET_ID}/values/'Fall 2022 Officers'!A2:H20?key=${API_KEY}`)
+					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${OFFICER_SHEET_ID}/values/'Officers'!A2:I20?key=${API_KEY}`)
 						.then(function (response) {
 							return response.json();
 						})
@@ -212,14 +215,15 @@
 									<div class="officers-item">
 										<div class="officers-img"> 
 											<div class="officers-img-top"> 
-						 						${entry[4] ? `<a href=${entry[4]}><img src="./img/JLCC-Instagram-Green.png" alt="${entry[0]}'s Instagram" /></a>` : ``}
-												${entry[7] ? `<a href=${entry[7]}><img src="./img/JLCC-LinkedIn-Green.png" alt="${entry[0]}'s LinkedIn" /></a>` : ``}
+						 						${entry[5] ? `<a target="_blank" href=${entry[5]}><img src="./img/JLCC-Instagram-Green.png" alt="${entry[0]}'s Instagram" /></a>` : ``}
+						 						${entry[7] ? `<a target="_blank" href="https://discord.com/users/${entry[7]}""><img src="./img/JLCC-Discord.png" alt="${entry[0]}'s Discord" /></a>` : ``}
+												${entry[8] ? `<a target="_blank" href=${entry[8]}><img src="./img/JLCC-LinkedIn-Green.png" alt="${entry[0]}'s LinkedIn" /></a>` : ``}
 						 					</div>
-						 					<img class="officer-pic" src=${entry[3]} alt="${entry[0]}" onerror="this.src='./img/placeholderOfficer.png'"> 
+						 					<img class="officer-pic" src=${entry[4]} alt="${entry[0]}" onerror="this.src='./img/placeholderOfficer.png'"> 
 						 				</div>
 										<div class="officers-info">
 											<h1>${entry[0]}</h1>
-											<h2>${entry[1]}</h2>
+											<h2>${entry[2]}</h2>
 										</div>
 									</div>
 								`
@@ -227,6 +231,9 @@
 							officersBot[0].innerHTML = result;
 						})
 				</script>
+			</div>
+			<div class="events-all">
+				<a href="./officers.html" type="button" class="cta">Meet the Officers</a>
 			</div>
 		</div>
 	</section>
@@ -242,25 +249,18 @@
 				<p>Additionally, paying for membership helps fund JLCC events, and allows JLCC to increase community
 					involvement. If you're a fan of what JLCC does, purchasing membership is a great way to support us & show your
 					appreciation.</p>
-				<p>In order to receive memebrship & gain access to the above benefits, please pay dues via <b>Zelle</b> & fill
-					out the membership form. Please be sure to write your <b>full name</b> and <b>PSID</b> in the Zelle message
-					box!</p>
-
-				<p class="alt-payment">Alternative ways to pay:</p>
-				<ul>
-					<li><b>Cash</b> (at events or DM an officer on Discord)</li>
-					<li><b>Paypal, Venmo, etc.</b> (DM an officer on Discord)</li>
-				</ul>
+				<p>In order to receive memebrship & gain access to the above benefits, please pay dues via <b>PayPal</b> & fill
+					out the membership form. Please contact <b><a target="_blank" href="https://discord.com/users/177269787590656000">@Nick - Treasurer</a></b> via Discord to receive your Member benefits & Discord role.</p>
 			</div>
 			<div class="membership-right">
 				<h1 class="section-title">Payment</h1>
-				<h2>Pricing: <span>$10</span>/Year </h2>
-				<h3>(<span>$7</span>/Semester)</h3>
+				<h2>Pricing: <span>$17</span>/Year </h2>
+				<h3>(<span>$10</span>/Semester)</h3>
 				<!--<a href="#" type="button" class="cta">Pay Dues via Venmo</a>-->
 				<!--<img src="./img/JLCC-Zelle.png" />-->
-				<a href="./img/JLCC-Zelle-Instructions.jpg" type="button" class="cta">Pay Dues via Zelle</a>
+				<a target="_blank" href="./img/JLCC-PayPal-QR-Code.jpg" type="button" class="cta">Pay Dues via PayPal</a>
 				<br>
-				<a href="https://forms.gle/X46uRFpvrDbkHAMV6"><span>Membership Form</span></a>
+				<a target="_blank" href="https://forms.gle/X46uRFpvrDbkHAMV6"><span>Membership Form</span></a>
 			</div>
 		</div>
 	</section>
@@ -278,13 +278,13 @@
 						Participate in events hosted on Discord like Japanese Tables & impromptu gaming sessions.</p>
 					<p>The server is open to anyone studying at the University of Houston, so feel free to join if you're
 						interested!</p>
-					<div class="icon"> <a href="https://discord.gg/AJNdDZwyrJ"><img src="./img/JLCC-Discord-Alt.png"
+					<div class="icon"> <a target="_blank" href="https://discord.gg/AJNdDZwyrJ"><img src="./img/JLCC-Discord-Alt.png"
 								alt="JLCC UH Discord Server" /></a> </div>
 				</div>
 				<div class="community-item">
 					<h1 class="section-title">Instagram</h1>
 					<p>Follow us on Instagram to keep up our with upcoming events & get to know our officers!</p>
-					<div class="icon"> <a href="https://www.instagram.com/jlccuh/"><img src="./img/JLCC-Instagram.png"
+					<div class="icon"> <a target="_blank" href="https://www.instagram.com/jlccuh/"><img src="./img/JLCC-Instagram.png"
 								alt="JLCC UH Instagram" /></a> </div>
 				</div>
 			</div>
@@ -296,16 +296,21 @@
 	<section id="footer">
 		<div class="footer container">
 			<div class="brand">
-				<h1>JLCC <span>UH</span></h1>
+				<a href="/">
+						<img src="./public/logo192.png" />
+					</a>
+					<a href="/">
+						<img class="banner-text" src="./img/JLCC-UH-Banner-Text-2023-v2.png" />
+					</a>
 			</div>
 			<h2>Japanese Language and Culture Club, University of Houston</h2>
 			<div class="social-icon">
-				<div class="social-item"> <a href="https://www.instagram.com/jlccuh/"> <img src="./img/JLCC-Instagram.png"
-							alt="JLCC UH Instagram"></a></div>
+<!-- 				<div class="social-item"> <a href="https://www.instagram.com/jlccuh/"> <img src="./img/JLCC-Instagram.png"
+							alt="JLCC UH Instagram"></a></div> -->
 				<div class="social-item"> <a href="mailto:jlccuh@gmail.com"> <img src="./img/JLCC-Mail.png"
 							alt="Email JLCC UH"></a></div>
 			</div>
-			<p>Created by Mitchell Sharma in 2022.</p>
+			<p>Created by Mitchell Sharma in 2023.</p>
 		</div>
 	</section>
 	<!-- End of Footer Section -->
