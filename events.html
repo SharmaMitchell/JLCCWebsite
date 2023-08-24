@@ -1,99 +1,140 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Events | UH Japanese Language and Culture Club</title>
+    <link rel="icon" href="./public/favicon.ico" type="image/x-icon" />
+    <link href="events-style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="officerList.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NHFFQ4KL74"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-NHFFQ4KL74");
+    </script>
+  </head>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Events | UH Japanese Language and Culture Club</title>
-	<link rel="icon" href="./public/favicon.ico" type="image/x-icon">
-	<link href="events-style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="officerList.js"></script>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-NHFFQ4KL74"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-NHFFQ4KL74');
-	</script>
-</head>
+  <body>
+    <!-- Header -->
+    <secion id="header">
+      <div class="header container">
+        <div class="nav-bar">
+          <div class="brand">
+            <a href="/">
+              <img src="./public/logo192.png" />
+            </a>
+            <a href="/">
+              <img
+                class="banner-text"
+                src="./img/JLCC-UH-Banner-Text-2023-v2.png"
+              />
+            </a>
+          </div>
+          <div class="nav-list">
+            <div class="hamburger">
+              <div class="bar"></div>
+            </div>
+            <ul>
+              <li><a href="./#about" data-after="About">About</a></li>
+              <li>
+                <a
+                  href="#events"
+                  data-after="Events"
+                  style="
+                    color: #f7a088;
+                    font-weight: 600;
+                    background-color: rgba(0, 0, 0, 15%);
+                  "
+                  >Events</a
+                >
+              </li>
+              <li><a href="./#officers" data-after="Officers">Officers</a></li>
+              <li>
+                <a href="./#membership" data-after="Membership">Membership</a>
+              </li>
+              <li>
+                <a href="./#community" data-after="Community">Community</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </secion>
+    <!-- End of Header -->
 
-<body>
-	<!-- Header -->
-	<secion id="header">
-		<div class="header container">
-			<div class="nav-bar">
-				<div class="brand">
-					<a href="/">
-						<img src="./public/logo192.png" />
-					</a>
-					<a href="/">
-						<img class="banner-text" src="./img/JLCC-UH-Banner-Text-2023-v2.png" />
-					</a>
-				</div>
-				<div class="nav-list">
-					<div class="hamburger">
-						<div class="bar"></div>
-					</div>
-					<ul>
-						<li><a href="./#about" data-after="About">About</a></li>
-						<li><a href="#events" data-after="Events"
-								style="color:#f7a088; font-weight: 600; background-color: rgba(0, 0, 0, 15%);">Events</a></li>
-						<li><a href="./#officers" data-after="Officers">Officers</a></li>
-						<li><a href="./#membership" data-after="Membership">Membership</a></li>
-						<li><a href="./#community" data-after="Community">Community</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</secion>
-	<!-- End of Header -->
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="hero container"></div>
+    </section>
+    <!-- End of Hero Section -->
 
-	<!-- Hero Section -->
-	<section id="hero">
-		<div class="hero container">
+    <!-- Events Section -->
+    <section id="events">
+      <div class="events container">
+        <div class="events-top">
+          <h1 class="section-title">Upcoming Events</h1>
+        </div>
+        <div class="events-bottom">
+          <script>
+            var eventsBot = document.getElementsByClassName("events-bottom");
+            eventsBot[0].innerHTML = `<h1 class="events-loading">LOADING EVENTS...</h1>`;
 
-		</div>
-	</section>
-	<!-- End of Hero Section -->
+            const SHEET_ID = "1FtZ30gm7E50faLSdECNBO8aVx3k6sRV-RVlRwHi_vbE";
+            const API_KEY = "AIzaSyB--kBZheOdXiaXSmRaLzLDZ_nXQRs1crY";
+            fetch(
+              `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Upcoming!A1:H90?key=${API_KEY}`
+            )
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (data) {
+                result = ``;
+                for (var i = 0; i < 90; i++) {
+                  if (
+                    data.values.length > i + 1 &&
+                    data.values[i + 1][0] != ""
+                  ) {
+                    //if title isn't blank
+                    let eventLink = ``;
+                    if (data.values[i + 1][7] != undefined) {
+                      //Event link
+                      if (
+                        data.values[i + 1][6] != undefined &&
+                        data.values[i + 1][6] != ""
+                      ) {
+                        // if theres a label, use it
+                        eventLink = `<a target="_blank" href=${
+                          data.values[i + 1][7]
+                        }>${data.values[i + 1][6]}</a>`;
+                      } else {
+                        //else just put the link there
+                        eventLink = `<a target="_blank" href=${
+                          data.values[i + 1][7]
+                        }">Event Details or RSVP</a>`;
+                      }
+                    }
 
-	<!-- Events Section -->
-	<section id="events">
-		<div class="events container">
-			<div class="events-top">
-				<h1 class="section-title">Upcoming Events</h1>
-			</div>
-			<div class="events-bottom">
-				<script>
-					var eventsBot = document.getElementsByClassName("events-bottom");
-					eventsBot[0].innerHTML = `<h1 class="events-loading">LOADING EVENTS...</h1>`;
+                    let eventImg = `<img src="./img/placeholder3.png" alt="${
+                      data.values[i + 1][0]
+                    } Event Image" >`;
+                    if (
+                      data.values[i + 1][5] != undefined &&
+                      data.values[i + 1][5] != ""
+                    ) {
+                      eventImg = `<img src=${data.values[i + 1][5]} alt="${
+                        data.values[i + 1][0]
+                      } Event Image" >`;
+                    }
 
-					const SHEET_ID = '1FtZ30gm7E50faLSdECNBO8aVx3k6sRV-RVlRwHi_vbE';
-					const API_KEY = 'AIzaSyB--kBZheOdXiaXSmRaLzLDZ_nXQRs1crY';
-					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Upcoming!A1:H90?key=${API_KEY}`)
-						.then(function (response) {
-							return response.json();
-						})
-						.then(function (data) {
-							result = ``;
-							for (var i = 0; i < 90; i++) {
-								if (data.values.length > i + 1 && data.values[i + 1][0] != "") { //if title isn't blank
-									let eventLink = ``;
-									if (data.values[i + 1][7] != undefined) { //Event link
-										if (data.values[i + 1][6] != undefined && data.values[i + 1][6] != "") { // if theres a label, use it
-											eventLink = `<a target="_blank" href=${data.values[i + 1][7]}>${data.values[i + 1][6]}</a>`
-										}
-										else { //else just put the link there
-											eventLink = `<a target="_blank" href=${data.values[i + 1][7]}">Event Details or RSVP</a>`
-										}
-									}
-
-									let eventImg = `<img src="./img/placeholder3.png" alt="${data.values[i + 1][0]} Event Image" >`;
-									if (data.values[i + 1][5] != undefined && data.values[i + 1][5] != "") {
-										eventImg = `<img src=${data.values[i + 1][5]} alt="${data.values[i + 1][0]} Event Image" >`;
-									}
-
-									var item = `
+                    var item = `
 									<div class="events-item">
 										<div class="events-img"> ${eventImg} </div>
 										<div class="events-info">
@@ -109,55 +150,76 @@
 					 						</div>
 										</div>
 									</div>
-									`
-								}
-								else {
-									break;
-								}
-								//eventsBot[0].innerHTML += item;
-								result += item;
-							}
-							eventsBot[0].innerHTML = result;
-						})
-						.catch(function (error) {
-							console.log(error);
-						});
-				</script>
-			</div>
-			<br>
-			<br>
-			<br>
-			<div class="events-top">
-				<h1 class="section-title">Previous Events</h1>
-			</div>
-			<div class="events-prev">
-				<script>
-					var eventsPrev = document.getElementsByClassName("events-prev");
-					eventsPrev[0].innerHTML = `<h1 class="events-loading">LOADING EVENTS...</h1>`;
-					fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Archive!A1:G90?key=${API_KEY}`)
-						.then(function (response) {
-							return response.json();
-						})
-						.then(function (data) {
-							result = ``;
-							for (var i = 0; i < 90; i++) {
-								if (data.values.length > i + 1 && data.values[i + 1][0] != "") { //if title isn't blank
-									let eventLink = ``;
-									if (data.values[i + 1][7] != undefined) { //Event link
-										if (data.values[i + 1][6] != undefined && data.values[i + 1][6] != "") { // if theres a label, use it
-											eventLink = `<a target="_blank" href=${data.values[i + 1][7]}>${data.values[i + 1][6]}</a>`
-										}
-										else { //else just put the link there
-											eventLink = `<a target="_blank" href=${data.values[i + 1][7]}">Event Details or RSVP</a>`
-										}
-									}
+									`;
+                  } else {
+                    break;
+                  }
+                  //eventsBot[0].innerHTML += item;
+                  result += item;
+                }
+                eventsBot[0].innerHTML = result;
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+          </script>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="events-top">
+          <h1 class="section-title">Previous Events</h1>
+        </div>
+        <div class="events-prev">
+          <script>
+            var eventsPrev = document.getElementsByClassName("events-prev");
+            eventsPrev[0].innerHTML = `<h1 class="events-loading">LOADING EVENTS...</h1>`;
+            fetch(
+              `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Archive!A1:G90?key=${API_KEY}`
+            )
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (data) {
+                result = ``;
+                for (var i = 0; i < 90; i++) {
+                  if (
+                    data.values.length > i + 1 &&
+                    data.values[i + 1][0] != ""
+                  ) {
+                    //if title isn't blank
+                    let eventLink = ``;
+                    if (data.values[i + 1][7] != undefined) {
+                      //Event link
+                      if (
+                        data.values[i + 1][6] != undefined &&
+                        data.values[i + 1][6] != ""
+                      ) {
+                        // if theres a label, use it
+                        eventLink = `<a target="_blank" href=${
+                          data.values[i + 1][7]
+                        }>${data.values[i + 1][6]}</a>`;
+                      } else {
+                        //else just put the link there
+                        eventLink = `<a target="_blank" href=${
+                          data.values[i + 1][7]
+                        }">Event Details or RSVP</a>`;
+                      }
+                    }
 
-									let eventImg = `<img src="./img/placeholder3.png" alt="${data.values[i + 1][0]} Event Image" >`;
-									if (data.values[i + 1][5] != undefined && data.values[i + 1][5] != "") {
-										eventImg = `<img src=${data.values[i + 1][5]} alt="${data.values[i + 1][0]} Event Image" >`;
-									}
+                    let eventImg = `<img src="./img/placeholder3.png" alt="${
+                      data.values[i + 1][0]
+                    } Event Image" >`;
+                    if (
+                      data.values[i + 1][5] != undefined &&
+                      data.values[i + 1][5] != ""
+                    ) {
+                      eventImg = `<img src=${data.values[i + 1][5]} alt="${
+                        data.values[i + 1][0]
+                      } Event Image" >`;
+                    }
 
-									var item = `
+                    var item = `
 									<div class="events-item">
 										<div class="events-img"> ${eventImg} </div>
 										<div class="events-info">
@@ -167,45 +229,57 @@
 					 						
 										</div>
 									</div>
-									`
-								}
-								else {
-									break;
-								}
-								//eventsPrev[0].innerHTML += item;
-								result += item;
-							}
-							eventsPrev[0].innerHTML = result;
-						})
-						.catch(function (error) {
-							console.log(error);
-						});
-				</script>
-			</div>
-		</div>
-	</section>
-	<!-- End of Events Section -->
+									`;
+                  } else {
+                    break;
+                  }
+                  //eventsPrev[0].innerHTML += item;
+                  result += item;
+                }
+                eventsPrev[0].innerHTML = result;
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+          </script>
+        </div>
+      </div>
+    </section>
+    <!-- End of Events Section -->
 
-	<!-- Footer Section -->
-	<section id="footer">
-		<div class="footer container">
-			<div class="brand"><a href="/">
-					<img src="./public/logo192.png" />
-				</a>
-				<a href="/">
-					<img class="banner-text" src="./img/JLCC-UH-Banner-Text-2023-v2.png" />
-				</a>
-			</div>
-			<h2>Japanese Language and Culture Club, University of Houston</h2>
-			<div class="social-icon">
-<!-- 				<div class="social-item"> <a href="#"> <img src="./img/JLCC-Instagram.png" alt="JLCC UH Instagram"></a></div> -->
-				<div class="social-item"> <a href="#"> <img src="./img/JLCC-Mail.png" alt="Email JLCC UH"></a></div>
-			</div>
-			<p>Created by <a href="https://mitchellsharma.com/?utm_source=jlcc-uh">Mitchell Sharma</a> in 2023.</p>
-		</div>
-	</section>
-	<!-- End of Footer Section -->
-	<script src="script.js"></script>
-</body>
-
+    <!-- Footer Section -->
+    <section id="footer">
+      <div class="footer container">
+        <div class="brand">
+          <a href="/">
+            <img src="./public/logo192.png" />
+          </a>
+          <a href="/">
+            <img
+              class="banner-text"
+              src="./img/JLCC-UH-Banner-Text-2023-v2.png"
+            />
+          </a>
+        </div>
+        <h2>Japanese Language and Culture Club, University of Houston</h2>
+        <div class="social-icon">
+          <!-- 				<div class="social-item"> <a href="#"> <img src="./img/JLCC-Instagram.png" alt="JLCC UH Instagram"></a></div> -->
+          <div class="social-item">
+            <a href="#">
+              <img src="./img/JLCC-Mail.png" alt="Email JLCC UH"
+            /></a>
+          </div>
+        </div>
+        <p>
+          Created by
+          <a href="https://mitchellsharma.com/?utm_source=jlcc-uh"
+            >Mitchell Sharma</a
+          >
+          in 2023.
+        </p>
+      </div>
+    </section>
+    <!-- End of Footer Section -->
+    <script src="script.js"></script>
+  </body>
 </html>
