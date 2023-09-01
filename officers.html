@@ -103,6 +103,8 @@
         </div>
         <div class="officers-bottom">
           <script>
+            var officersContainer =
+              document.getElementsByClassName("officers container");
             var officersBot =
               document.getElementsByClassName("officers-bottom");
             officersBot[0].innerHTML = `<h1 class="events-loading">LOADING OFFICERS...</h1>`;
@@ -111,129 +113,83 @@
             const OFFICER_SHEET_ID =
               "1jb5jnUxogVqEqsCCdd0AQQwhgCaiF-LV_vY-9Krm_dk";
             fetch(
-              `https://sheets.googleapis.com/v4/spreadsheets/${OFFICER_SHEET_ID}/values/'Officers'!A2:I20?key=${API_KEY}`
+              `https://sheets.googleapis.com/v4/spreadsheets/${OFFICER_SHEET_ID}?fields=sheets.properties.title&key=${API_KEY}`
             )
               .then(function (response) {
+                officersBot[0].innerHTML = "";
                 return response.json();
               })
               .then(function (data) {
-                result = `<div class="officers-list">`;
-                resultLg = `<div class="officers-list lg">`;
-                console.log(data);
-                console.log(data.values);
-                console.log(data.values[0]);
-                data.values.map((entry) => {
-                  entry[3]
-                    ? (resultLg += `
-									<div class="officers-item lg">
-				 						<div class="officers-img-background">
-											<div class="officers-img lg"> 
-							 					<img class="officer-pic lg" src=${entry[4]} alt="${
-                        entry[0]
-                      }" onerror="this.src='./img/placeholderOfficer.png'"> 
-							 				</div>
-					 					</div>
-										<div class="officers-info lg">
-											<h1>${entry[0]} 
-					 							${entry[1] ? `(${entry[1]})` : ``}
-					 							: ${entry[2]}
-						 					</h1>
-											<p>${entry[3]}</p>
-					 						<div class="officers-socials lg">
-												${
-                          entry[5]
-                            ? `<a target="_blank" href=${entry[5]}><img src="./img/JLCC-Instagram.png" alt="${entry[0]}'s Instagram" /></a>`
-                            : ``
-                        }
-												${
-                          entry[7]
-                            ? `<a target="_blank" href="https://discord.com/users/${entry[7]}""><img src="./img/JLCC-Discord-Alt.png" alt="${entry[0]}'s Discord" /></a>`
-                            : ``
-                        }
-												${
-                          entry[8]
-                            ? `<a target="_blank" href=${entry[8]}><img src="./img/JLCC-LinkedIn.png" alt="${entry[0]}'s LinkedIn" /></a>`
-                            : ``
-                        }
-											</div>
-										</div>
-										
-									</div>
-								`)
-                    : (result += `
-										<div class="officers-item">
-											<div class="officers-img"> 
-												<div class="officers-img-top"> 
-							 						${
-                            entry[5]
-                              ? `<a target="_blank" href=${entry[5]}><img src="./img/JLCC-Instagram.png" alt="${entry[0]}'s Instagram" /></a>`
-                              : ``
-                          }
-													${
-                            entry[7]
-                              ? `<a target="_blank" href="https://discord.com/users/${entry[7]}""><img src="./img/JLCC-Discord-Alt.png" alt="${entry[0]}'s Discord" /></a>`
-                              : ``
-                          }
-													${
-                            entry[8]
-                              ? `<a target="_blank" href=${entry[8]}><img src="./img/JLCC-LinkedIn.png" alt="${entry[0]}'s LinkedIn" /></a>`
-                              : ``
-                          }
-							 					</div>
-							 					<img class="officer-pic" src=${entry[4]} alt="${
-                        entry[0]
-                      }" onerror="this.src='./img/placeholderOfficer.png'"> 
-							 				</div>
-											<div class="officers-info">
-												<h1>${entry[0]}</h1>
-												<h2>${entry[2]}</h2>
-											</div>
-										</div>
-									`);
-                });
-                if (resultLg != `<div class="officers-list lg">`) {
-                  resultLg += `</div>`;
-                  officersBot[0].innerHTML = resultLg;
-                }
-                if (result != `<div class="officers-list">`) {
-                  result += `</div>`;
-                  officersBot[0].innerHTML += result;
-                }
-              });
-          </script>
-        </div>
-        <div class="officers-top">
-          <h1 class="section-title">Fall 2022 Officers</h1>
-        </div>
-        <div class="officers-bottom F">
-          <script>
-            var officersBotF =
-              document.getElementsByClassName("officers-bottom F");
-            // officersBot[0].innerHTML = `<h1 class="events-loading">LOADING OFFICERS...</h1>`;
+                const sheetNames = data.sheets.map(
+                  (sheet) => sheet.properties.title
+                );
 
-            // const API_KEY = 'AIzaSyB--kBZheOdXiaXSmRaLzLDZ_nXQRs1crY';
-            // const OFFICER_SHEET_ID = '1jb5jnUxogVqEqsCCdd0AQQwhgCaiF-LV_vY-9Krm_dk';
-            fetch(
-              `https://sheets.googleapis.com/v4/spreadsheets/${OFFICER_SHEET_ID}/values/'Fall 2022 Officers'!A2:H20?key=${API_KEY}`
-            )
-              .then(function (response) {
-                return response.json();
-              })
-              .then(function (data) {
-                resultF = `<div class="officers-list">`;
-                resultLgF = `<div class="officers-list lg">`;
-                console.log(data);
-                console.log(data.values);
-                console.log(data.values[0]);
-                data.values.map((entry) => {
-                  entry[2]
-                    ? (resultLgF += `
+                // Remove Fall 2022 Sheet due to legacy formatting (manual formatting below)
+                // sheetNames.splice(sheetNames.indexOf("Fall 2022 Officers"), 1);
+
+                function seasonSort(a, b) {
+                  // The string "Officers" is always first
+                  if (a === "Officers") return -1;
+                  if (b === "Officers") return 1;
+
+                  // Extract year and season from the strings
+                  const [aSeason, aYear] = a
+                    .match(/(Spring|Fall) (\d{4})/)
+                    .slice(1);
+                  const [bSeason, bYear] = b
+                    .match(/(Spring|Fall) (\d{4})/)
+                    .slice(1);
+
+                  // Sort by year descending
+                  const yearComparison = parseInt(bYear) - parseInt(aYear);
+
+                  // Sort by season (Fall before Spring)
+                  const seasonComparison =
+                    aSeason === "Fall" && bSeason === "Spring"
+                      ? -1
+                      : aSeason === "Spring" && bSeason === "Fall"
+                      ? 1
+                      : 0;
+
+                  // If years are the same, sort by season
+                  if (yearComparison === 0) {
+                    return seasonComparison;
+                  }
+
+                  // Otherwise, sort by year
+                  return yearComparison;
+                }
+
+                sheetNames.sort(seasonSort);
+
+                console.log("Sheet names:", sheetNames);
+
+                sheetNames
+                  .forEach((sheetName) => {
+                    fetch(
+                      `https://sheets.googleapis.com/v4/spreadsheets/${OFFICER_SHEET_ID}/values/${sheetName}!A2:I20?key=${API_KEY}`
+                    )
+                      .then((response) => response.json())
+                      .then((data) => {
+                        console.log(`Data from sheet "${sheetName}":`, data);
+
+                        if (sheetName === "Fall 2022 Officers") {
+                          result = `<div class="officers-list">`;
+                          resultLg = `<div class="officers-list lg">`;
+                          // console.log(data);
+                          // console.log(data.values);
+                          // console.log(data.values[0]);
+                          data.values.map((entry) => {
+                            entry[2]
+                              ? (resultLg += `
 									<div class="officers-item lg">
 				 						<div class="officers-img-background">
 											<div class="officers-img lg"> 
-							 					<img class="officer-pic lg" src=${entry[3]} alt="${
-                        entry[0]
-                      }" onerror="this.src='./img/placeholderOfficer.png'"> 
+							 					<img class="officer-pic lg" src=${
+                          entry[3]
+                        } referrerPolicy="no-referrer" alt="${
+                                  entry[0]
+                                }" onerror="this.src='./img/placeholderOfficer.png'"> 
 							 				</div>
 					 					</div>
 										<div class="officers-info lg">
@@ -255,7 +211,7 @@
 										
 									</div>
 								`)
-                    : (resultF += `
+                              : (result += `
 										<div class="officers-item">
 											<div class="officers-img"> 
 												<div class="officers-img-top"> 
@@ -270,9 +226,9 @@
                               : ``
                           }
 							 					</div>
-							 					<img class="officer-pic" src=${entry[3]} alt="${
-                        entry[0]
-                      }" onerror="this.src='./img/placeholderOfficer.png'"> 
+							 					<img class="officer-pic" src=${entry[3]} referrerPolicy="no-referrer" alt="${
+                                  entry[0]
+                                }" onerror="this.src='./img/placeholderOfficer.png'"> 
 							 				</div>
 											<div class="officers-info">
 												<h1>${entry[0]}</h1>
@@ -280,15 +236,121 @@
 											</div>
 										</div>
 									`);
-                });
-                if (resultLgF != `<div class="officers-list lg">`) {
-                  resultLgF += `</div>`;
-                  officersBotF[0].innerHTML += resultLgF;
-                }
-                if (resultF != `<div class="officers-list">`) {
-                  resultF += `</div>`;
-                  officersBotF[0].innerHTML += resultF;
-                }
+                          });
+                        } else {
+                          result = `<div class="officers-list">`;
+                          resultLg = `<div class="officers-list lg">`;
+                          data.values.map((entry) => {
+                            entry[3]
+                              ? (resultLg += `
+            				<div class="officers-item lg">
+            					<div class="officers-img-background">
+            						<div class="officers-img lg">
+            		 					<img class="officer-pic lg" src=${
+                            entry[4]
+                          } referrerPolicy="no-referrer" alt="${
+                                  entry[0]
+                                }" onerror="this.src='./img/placeholderOfficer.png'">
+            		 				</div>
+             					</div>
+            					<div class="officers-info lg">
+            						<h1>${entry[0]}
+             							${entry[1] ? `(${entry[1]})` : ``}
+             							: ${entry[2]}
+            	 					</h1>
+            						<p>${entry[3]}</p>
+             						<div class="officers-socials lg">
+            							${
+                            entry[5]
+                              ? `<a target="_blank" href=${entry[5]}><img src="./img/JLCC-Instagram.png" alt="${entry[0]}'s Instagram" /></a>`
+                              : ``
+                          }
+            							${
+                            entry[7]
+                              ? `<a target="_blank" href="https://discord.com/users/${entry[7]}""><img src="./img/JLCC-Discord-Alt.png" alt="${entry[0]}'s Discord" /></a>`
+                              : ``
+                          }
+            							${
+                            entry[8]
+                              ? `<a target="_blank" href=${entry[8]}><img src="./img/JLCC-LinkedIn.png" alt="${entry[0]}'s LinkedIn" /></a>`
+                              : ``
+                          }
+            						</div>
+            					</div>
+
+            				</div>
+            			`)
+                              : (result += `
+            					<div class="officers-item">
+            						<div class="officers-img">
+            							<div class="officers-img-top">
+            		 						${
+                              entry[5]
+                                ? `<a target="_blank" href=${entry[5]}><img src="./img/JLCC-Instagram.png" alt="${entry[0]}'s Instagram" /></a>`
+                                : ``
+                            }
+            								${
+                              entry[7]
+                                ? `<a target="_blank" href="https://discord.com/users/${entry[7]}""><img src="./img/JLCC-Discord-Alt.png" alt="${entry[0]}'s Discord" /></a>`
+                                : ``
+                            }
+            								${
+                              entry[8]
+                                ? `<a target="_blank" href=${entry[8]}><img src="./img/JLCC-LinkedIn.png" alt="${entry[0]}'s LinkedIn" /></a>`
+                                : ``
+                            }
+            		 					</div>
+            		 					<img class="officer-pic" src=${
+                            entry[4]
+                          } referrerPolicy="no-referrer" alt="${
+                                  entry[0]
+                                }" onerror="this.src='./img/placeholderOfficer.png'">
+            		 				</div>
+            						<div class="officers-info">
+            							<h1>${entry[0]}</h1>
+            							<h2>${entry[2]}</h2>
+            						</div>
+            					</div>
+            				`);
+                          });
+                        }
+
+                        if (sheetName !== "Officers") {
+                          officersContainer[0].innerHTML += `<div class="officers-top">
+          <h1 class="section-title">${sheetName}</h1>
+        </div>
+        <div class="officers-bottom ${sheetName}"></div>`;
+                          const officersBotSheet =
+                            document.getElementsByClassName(
+                              `officers-bottom ${sheetName}`
+                            );
+
+                          if (resultLg != `<div class="officers-list lg">`) {
+                            resultLg += `</div>`;
+                            officersBotSheet[0].innerHTML += resultLg;
+                          }
+                          if (result != `<div class="officers-list">`) {
+                            result += `</div>`;
+                            officersBotSheet[0].innerHTML += result;
+                          }
+                        } else {
+                          if (resultLg != `<div class="officers-list lg">`) {
+                            resultLg += `</div>`;
+                            officersBot[0].innerHTML += resultLg;
+                          }
+                          if (result != `<div class="officers-list">`) {
+                            result += `</div>`;
+                            officersBot[0].innerHTML += result;
+                          }
+                        }
+                      });
+                  })
+                  .catch((error) => {
+                    console.error(
+                      `Error fetching data from sheet "${sheetName}":`,
+                      error
+                    );
+                  });
               });
           </script>
         </div>
